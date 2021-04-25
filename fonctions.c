@@ -100,41 +100,90 @@ void SwitchPlayer(game* g){
 
 int ia(game g)
 {
-int indice
+int indice;
 int score[nb_colonnes];
 int i,j,x;
-int count=0;
+int count=1;
 int max;
-for(j=0;j<nb_colonnes;j++)
+for(int k=0;k<nb_colonnes;k++)
 {
-for(i=nb_lignes-1;i>=0;i++)
-{
-if(g.board[i][j]==VIDE)
-break;
+score[k]=0;
 
 }
 
+for(j=0;j<nb_colonnes;j++)
+{
+for(i=nb_lignes-1;i>0;i--)
+{
+if(g.board[i][j]==VIDE)
+{
 x=i;
+printf("\n%d  xxx",x);
+if(x==nb_lignes-1)
+{
+
+score[j]=count;
+count=0;
+
+
+break;
+
+
+
+}
+else
+{
 do
 {
 x++;
 count++;
 
 
-}while(g.board[x][j]==g.board[x+1][j]);
+}while((g.board[x][j]==g.board[x+1][j])&&(x<8));
 
 
 score[j]=count;
+count=0;
+
+
+break;
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+}
+}
 
 }
 max=0;
 for(i=0;i<nb_colonnes;i++)
 {
-if (score[i]>max)
+if (score[i]>=max)
 {
 max=score[i];
 indice=i;
 }
+
+}
+for(int k=0;k<nb_colonnes;k++)
+{
+printf("\n%d\n",score[k]);
 
 }
 
