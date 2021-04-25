@@ -11,6 +11,7 @@
 #define nb_colonnes 7
 #define nb_lignes 6
 #define PLAYER1 0
+#define PLAYER2 1
 
 
 #define RUNNING 0
@@ -39,3 +40,7 @@ typedef struct {
 
 game initialiser(game g);
 void afficherGrille(game g,SDL_Surface* screen);
+void click(game* g,int i,int j);
+int PlayerXWon(game g,int player);
+void GameOver(game* g);
+void SwitchPlayer(game* g);
