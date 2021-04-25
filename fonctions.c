@@ -96,3 +96,40 @@ void SwitchPlayer(game* g){
   if (g->player==PLAYER1) g->player=PLAYER2;
   else if (g->player==PLAYER2) g->player=PLAYER1;
 }
+
+
+int ia(game g){
+  int meilleur[20];
+  for (int i=0;i<20;i++){
+    meilleur[i]=-1;     //INITIALISATION DU TABLEAU MEILLEUR
+  }
+
+for (int j=0;j<nb_colonnes;j++){
+  for(int i=0;i<nb_lignes;i++){
+    if (g.board[i][j]==VIDE){
+      meilleur[j]=1;
+    }
+  }
+} //FINDING ALL POSSIBLE MOVES AND PTTING THEM IN A TABLE
+
+int tmp;
+for(int j=0;j<nb_colonnes;j++){
+  for (int i=0;i<nb_lignes;i++){
+    if (meilleur[j]==1){
+      tmp=g.board[i][j];
+      g.board[i][j]=ROUGE;
+      if (PlayerXWon(*g,ROUGE)==1){
+        g.board[i][j]=tmp;
+        return j;
+      }
+    g.board[i][j]=JAUNE;
+    if (PlayerXWon(*g,JAUNE)==1){
+      g.board[i][j]=tmp;
+      return j;
+      }
+    }
+  }
+
+} //BCH NABDEl EL CASE MTAA EL MATRICE, NAAYET L GAMEOVER ncrhouf est ce que el jeu wfet walet, ken el jeu wfet ray heki ahsen move w baaed nrajaa kol chay kima ken
+
+}

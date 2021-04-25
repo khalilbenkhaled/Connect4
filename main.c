@@ -35,16 +35,6 @@ while(loop)
 
 afficherGrille(g,screen);
 
-
-
-
-
-
-
-
-
-
-
 //events
 SDL_Event event;
 
@@ -60,11 +50,17 @@ loop=0;
 
 //click
 case SDL_MOUSEBUTTONDOWN:
-click(&g,event.button.x/SQUARE_SIZE);
+if (g.player==PLAYER1) click(&g,event.button.x/SQUARE_SIZE);
 break;
 
 }//end switch
-}//end boucle while event
+}//end events
+if (g.player==PLAYER2){
+  int j;
+  j=ia(g);
+  click(&g,j);
+} 
+
 
  SDL_Flip(screen);
 }//fin boucle
