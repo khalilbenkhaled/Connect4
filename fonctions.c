@@ -189,3 +189,14 @@ printf("\n%d\n",score[k]);
 
 return indice;
 }
+
+
+
+int minimax(game g,int depth){
+}
+
+int boardscore(game g,int j){
+
+
+  
+}

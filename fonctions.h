@@ -48,3 +48,6 @@ int PlayerXWon(game g,int player);
 void GameOver(game* g);
 void SwitchPlayer(game* g);
 int ia(game g);
+
+int minimax(game g,int depth);
+int boardscore(game g,int j);
