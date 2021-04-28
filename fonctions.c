@@ -251,7 +251,7 @@ int minimax(game g,int depth){
   printf("\n PLAYER %d",g.player);
 
   GameOver(&g);
-  if (g.state!=RUNNING){
+  if (g.state!=RUNNING||depth==0){
     int score;
     if (g.state==PLAYER1_WON) score=10;
     else if (g.state==PLAYER2_WON) score=-10;
