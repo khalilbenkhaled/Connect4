@@ -228,7 +228,7 @@ int colonne=-1;
 }
 */
 int BestMove(game g){
-  int BestScore=-100000;
+  int BestScore=-100;
   int move=-1;
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
@@ -259,7 +259,7 @@ int minimax(game g,int depth){
     return score;
   }
 if (g.player==PLAYER2){
-  int BestScore=-100000;
+  int BestScore=-100;
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
@@ -275,11 +275,11 @@ if (g.player==PLAYER2){
     }
   }
 
-printf("\n PLAYER %d",g.player);
+printf("\n MAXIMIZING PLAYER %d",g.player);
   return BestScore;
 }
 else{
-  int BestScore=100000;
+  int BestScore=100;
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
@@ -294,7 +294,7 @@ else{
       }
     }
   }
-  printf("\n BEST SCORE IS %d",BestScore);
+  printf("\n  MINIMIZING BEST SCORE IS %d",BestScore);
   return BestScore;
 }
 
