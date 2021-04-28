@@ -251,13 +251,52 @@ int minimax(game g,int depth){
   printf("\n PLAYER %d",g.player);
 
   GameOver(&g);
-  if (g.state!=RUNNING||depth==0){
-    int score;
+if (depth==0){
+  int score;
+  if (g.state!=RUNNING){
+
     if (g.state==PLAYER1_WON) score=10;
     else if (g.state==PLAYER2_WON) score=-10;
     else if (g.state==TIE) score=0;
-    return score;
+
   }
+  else{
+    int i;
+    int j;
+      for(i=0;i<nb_lignes;i++){
+        for(j=0;j<nb_colonnes;j++){
+            if (g.board[i][j]==player&&g.board[i][j+1]==player&&g.board[i][j+2]==player) //check colonne
+                score+=5;
+            if (g.board[i][j]==player&&g.board[i+1][j]==player&&g.board[i+2][j]==player) // check ligne
+                score+=5;
+            if (g.board[i][j]==player&&g.board[i+1][j+1]==player&&g.board[i+2][j+2]==player) //check diagonale1
+                score+=5;
+            if (g.board[i][j]==player&&g.board[i-1][j+1]==player&&g.board[i-2][j+2]==player) //check diagonale 2
+                score+=5;
+        }
+      }
+      for(i=0;i<nb_lignes;i++){
+        for(j=0;j<nb_colonnes;j++){
+            if (g.board[i][j]==player&&g.board[i][j+1]==player) //check colonne
+                score+=3;
+            if (g.board[i][j]==player&&g.board[i+1][j]==player) // check ligne
+                score+=3;
+            if (g.board[i][j]==player&&g.board[i+1][j+1]==player) //check diagonale1
+                score+=3;
+            if (g.board[i][j]==player&&g.board[i-1][j+1]==player) //check diagonale 2
+                score+=3;
+        }
+      }
+      for(i=0;i<nb_lignes;i++){
+        for(j=0;j<nb_colonnes;j++){
+            if (g.board[i][j]==player) //check colonne
+                score+=1;
+        }
+      }
+  } //else
+  return score;
+}
+
 if (g.player==PLAYER2){
   int BestScore=-100;
   for(int j=0;j<nb_colonnes;j++){
