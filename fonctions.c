@@ -234,7 +234,7 @@ int BestMove(game g){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-        int score=minimax(g);
+        int score=minimax(g,0);
         if(score>BestScore) {
           BestScore=score;
           move=j;
@@ -245,7 +245,56 @@ int BestMove(game g){
       }
     }
   }
+  return move;
 }
-int minimax(game g){
-  return 1;
+int minimax(game g,int depth){
+int score;
+  GameOver(&g);
+  if (g.state!=RUNNING){
+    if (g.state==PLAYER1_WON) score=10;
+    else if (g.state==PLAYER2_WON) score=-10;
+    else if (g.state==TIE) score=0;
+    return score;
+  }
+if (g.player==PLAYER2){
+  int BestScore=-100000;
+  for(int j=0;j<nb_colonnes;j++){
+    for(int i=nb_lignes-1;i>=0;i--){
+      if (g.board[i][j]==VIDE){
+        g.board[i][j]=JAUNE;
+        int score=minimax(g,depth+1);
+        if(score>BestScore) {
+          BestScore=score;
+          move=j;
+          //if any bugs undo the move after playing and getting the socre
+        }
+        break;
+      }
+    }
+  }
+  return BestScore;
+}
+else{
+  int BestScore=100000;
+  for(int j=0;j<nb_colonnes;j++){
+    for(int i=nb_lignes-1;i>=0;i--){
+      if (g.board[i][j]==VIDE){
+        g.board[i][j]=JAUNE;
+        int score=minimax(g,depth+1);
+        if(score<BestScore) {
+          BestScore=score;
+          move=j;
+          //if any bugs undo the move after playing and getting the socre
+        }
+        break;
+      }
+    }
+  }
+  return BestScore;
+}
+
+
+
+
+
 }
