@@ -278,7 +278,7 @@ else{
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
-        g.board[i][j]=JAUNE;
+        g.board[i][j]=ROUGE;
         int score=minimax(g,depth+1);
         if(score<BestScore) {
           BestScore=score;
