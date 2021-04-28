@@ -248,9 +248,10 @@ int BestMove(game g){
   return move;
 }
 int minimax(game g,int depth){
-int score;
+
   GameOver(&g);
   if (g.state!=RUNNING){
+    int score;
     if (g.state==PLAYER1_WON) score=10;
     else if (g.state==PLAYER2_WON) score=-10;
     else if (g.state==TIE) score=0;
@@ -262,6 +263,7 @@ if (g.player==PLAYER2){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
+         SwitchPlayer(&g);
         int score=minimax(g,depth+1);
         if(score>BestScore) {
           BestScore=score;
@@ -279,6 +281,7 @@ else{
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=ROUGE;
+        SwitchPlayer(&g)
         int score=minimax(g,depth+1);
         if(score<BestScore) {
           BestScore=score;
