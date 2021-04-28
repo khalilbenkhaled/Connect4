@@ -256,9 +256,9 @@ if (depth==0){
   int score;
   if (g.state!=RUNNING){
 
-    if (g.state==PLAYER1_WON) score=-10;
-    else if (g.state==PLAYER2_WON) score=10;
-    else if (g.state==TIE) score=0;
+    if (g.state==PLAYER1_WON) scor+e=-10;
+    else if (g.state==PLAYER2_WON) score+=10;
+    else if (g.state==TIE) score+=0;
 
   }
   else{
