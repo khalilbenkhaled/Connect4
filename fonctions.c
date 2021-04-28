@@ -265,31 +265,31 @@ if (depth==0){
     int j;
       for(i=0;i<nb_lignes;i++){
         for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==player&&g.board[i][j+1]==player&&g.board[i][j+2]==player) //check colonne
+            if (g.board[i][j]==g.player&&g.board[i][j+1]==g.player&&g.board[i][j+2]==g.player) //check colonne
                 score+=5;
-            if (g.board[i][j]==player&&g.board[i+1][j]==player&&g.board[i+2][j]==player) // check ligne
+            if (g.board[i][j]==g.player&&g.board[i+1][j]==g.player&&g.board[i+2][j]==g.player) // check ligne
                 score+=5;
-            if (g.board[i][j]==player&&g.board[i+1][j+1]==player&&g.board[i+2][j+2]==player) //check diagonale1
+            if (g.board[i][j]==g.player&&g.board[i+1][j+1]==g.player&&g.board[i+2][j+2]==g.player) //check diagonale1
                 score+=5;
-            if (g.board[i][j]==player&&g.board[i-1][j+1]==player&&g.board[i-2][j+2]==player) //check diagonale 2
+            if (g.board[i][j]==g.player&&g.board[i-1][j+1]==g.player&&g.board[i-2][j+2]==g.player) //check diagonale 2
                 score+=5;
         }
       }
       for(i=0;i<nb_lignes;i++){
         for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==player&&g.board[i][j+1]==player) //check colonne
+            if (g.board[i][j]==g.player&&g.board[i][j+1]==g.player) //check colonne
                 score+=3;
-            if (g.board[i][j]==player&&g.board[i+1][j]==player) // check ligne
+            if (g.board[i][j]==g.player&&g.board[i+1][j]==g.player) // check ligne
                 score+=3;
-            if (g.board[i][j]==player&&g.board[i+1][j+1]==player) //check diagonale1
+            if (g.board[i][j]==g.player&&g.board[i+1][j+1]==g.player) //check diagonale1
                 score+=3;
-            if (g.board[i][j]==player&&g.board[i-1][j+1]==player) //check diagonale 2
+            if (g.board[i][j]==g.player&&g.board[i-1][j+1]==g.player) //check diagonale 2
                 score+=3;
         }
       }
       for(i=0;i<nb_lignes;i++){
         for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==player) //check colonne
+            if (g.board[i][j]==g.player) //check colonne
                 score+=1;
         }
       }
@@ -297,13 +297,13 @@ if (depth==0){
   return score;
 }
 
-if (g.player==PLAYER2){
+if (g.g.player==g.player2){
   int BestScore=-100;
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-         SwitchPlayer(&g);
+         Switchg.player(&g);
         int score=minimax(g,depth-1);
         if(score>BestScore) {
           BestScore=score;
