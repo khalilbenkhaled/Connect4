@@ -234,7 +234,7 @@ int BestMove(game g){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-        int score=minimax(g,5);
+        int score=minimax(g,2);
         if(score>BestScore) {
           BestScore=score;
           move=j;
