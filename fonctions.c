@@ -264,36 +264,67 @@ if (depth==0){
   else{
     int i;
     int j;
-      for(i=0;i<nb_lignes;i++){
-        for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==g.player&&g.board[i][j+1]==g.player&&g.board[i][j+2]==g.player) //check colonne
-                score+=5;
-            if (g.board[i][j]==g.player&&g.board[i+1][j]==g.player&&g.board[i+2][j]==g.player) // check ligne
-                score+=5;
-            if (g.board[i][j]==g.player&&g.board[i+1][j+1]==g.player&&g.board[i+2][j+2]==g.player) //check diagonale1
-                score+=5;
-            if (g.board[i][j]==g.player&&g.board[i-1][j+1]==g.player&&g.board[i-2][j+2]==g.player) //check diagonale 2
-                score+=5;
-        }
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER2&&g.board[i][j+1]==PLAYER2&&g.board[i][j+2]==PLAYER2) //check colonne
+              score+=5;
+          if (g.board[i][j]==PLAYER2&&g.board[i+1][j]==PLAYER2&&g.board[i+2][j]==PLAYER2) // check ligne
+              score+=5;
+          if (g.board[i][j]==PLAYER2&&g.board[i+1][j+1]==PLAYER2&&g.board[i+2][j+2]==PLAYER2) //check diagonale1
+              score+=5;
+          if (g.board[i][j]==PLAYER2&&g.board[i-1][j+1]==PLAYER2&&g.board[i-2][j+2]==PLAYER2) //check diagonale 2
+              score+=5;
       }
-      for(i=0;i<nb_lignes;i++){
-        for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==g.player&&g.board[i][j+1]==g.player) //check colonne
-                score+=3;
-            if (g.board[i][j]==g.player&&g.board[i+1][j]==g.player) // check ligne
-                score+=3;
-            if (g.board[i][j]==g.player&&g.board[i+1][j+1]==g.player) //check diagonale1
-                score+=3;
-            if (g.board[i][j]==g.player&&g.board[i-1][j+1]==g.player) //check diagonale 2
-                score+=3;
-        }
+    }
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER2&&g.board[i][j+1]==PLAYER2) //check colonne
+              score+=3;
+          if (g.board[i][j]==PLAYER2&&g.board[i+1][j]==PLAYER2) // check ligne
+              score+=3;
+          if (g.board[i][j]==PLAYER2&&g.board[i+1][j+1]==PLAYER2) //check diagonale1
+              score+=3;
+          if (g.board[i][j]==PLAYER2&&g.board[i-1][j+1]==PLAYER2) //check diagonale 2
+              score+=3;
       }
-      for(i=0;i<nb_lignes;i++){
-        for(j=0;j<nb_colonnes;j++){
-            if (g.board[i][j]==g.player) //check colonne
-                score+=1;
-        }
+    }
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER2) //check colonne
+              score+=1;
       }
+    }
+    //PLAYER1
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER1&&g.board[i][j+1]==PLAYER1&&g.board[i][j+2]==PLAYER1) //check colonne
+              score+=5;
+          if (g.board[i][j]==PLAYER1&&g.board[i+1][j]==PLAYER1&&g.board[i+2][j]==PLAYER1) // check ligne
+              score+=5;
+          if (g.board[i][j]==PLAYER1&&g.board[i+1][j+1]==PLAYER1&&g.board[i+2][j+2]==PLAYER1) //check diagonale1
+              score+=5;
+          if (g.board[i][j]==PLAYER1&&g.board[i-1][j+1]==PLAYER1&&g.board[i-2][j+2]==PLAYER1) //check diagonale 2
+              score+=5;
+      }
+    }
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER1&&g.board[i][j+1]==PLAYER1) //check colonne
+              score+=3;
+          if (g.board[i][j]==PLAYER1&&g.board[i+1][j]==PLAYER1) // check ligne
+              score+=3;
+          if (g.board[i][j]==PLAYER1&&g.board[i+1][j+1]==PLAYER1) //check diagonale1
+              score+=3;
+          if (g.board[i][j]==PLAYER1&&g.board[i-1][j+1]==PLAYER1) //check diagonale 2
+              score+=3;
+      }
+    }
+    for(i=0;i<nb_lignes;i++){
+      for(j=0;j<nb_colonnes;j++){
+          if (g.board[i][j]==PLAYER1) //check colonne
+              score+=1;
+      }
+    }
   } //else
   return score;
 }
