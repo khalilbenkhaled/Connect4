@@ -234,7 +234,7 @@ int BestMove(game g){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-        int score=minimax(g,3);
+        int score=minimax(g,10);
         if(score>BestScore) {
           BestScore=score;
           move=j;
@@ -274,6 +274,8 @@ if (g.player==PLAYER2){
       }
     }
   }
+
+printf("\n PLAYER %d",g.player);
   return BestScore;
 }
 else{
@@ -292,6 +294,7 @@ else{
       }
     }
   }
+  printf("\n BEST SCORE IS %d",BestScore);
   return BestScore;
 }
 
