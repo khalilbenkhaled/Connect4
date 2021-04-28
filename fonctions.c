@@ -265,7 +265,6 @@ if (g.player==PLAYER2){
         int score=minimax(g,depth+1);
         if(score>BestScore) {
           BestScore=score;
-          move=j;
           //if any bugs undo the move after playing and getting the socre
         }
         break;
@@ -283,7 +282,6 @@ else{
         int score=minimax(g,depth+1);
         if(score<BestScore) {
           BestScore=score;
-          move=j;
           //if any bugs undo the move after playing and getting the socre
         }
         break;
