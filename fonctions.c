@@ -234,7 +234,7 @@ int BestMove(game g){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-        int score=minimax(g,0);
+        int score=minimax(g,3);
         if(score>BestScore) {
           BestScore=score;
           move=j;
@@ -265,7 +265,7 @@ if (g.player==PLAYER2){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
          SwitchPlayer(&g);
-        int score=minimax(g,depth+1);
+        int score=minimax(g,depth-1);
         if(score>BestScore) {
           BestScore=score;
           //if any bugs undo the move after playing and getting the socre
@@ -283,7 +283,7 @@ else{
       if (g.board[i][j]==VIDE){
         g.board[i][j]=ROUGE;
         SwitchPlayer(&g);
-        int score=minimax(g,depth+1);
+        int score=minimax(g,depth-1);
         if(score<BestScore) {
           BestScore=score;
           //if any bugs undo the move after playing and getting the socre
