@@ -192,11 +192,60 @@ return indice;
 
 
 
-int minimax(game g,int depth){
+/*int minimax(game g,int depth){
+
+  int score[nb_colonnes];
+      for (int i=0;i<nb_colonnes;i++){      //initialisation of the table of scores
+      score[i]=-100;
+    }
+
+    for(int j=0;i<nb_colonnes;j++){
+      score[j]=boardscore(g,j);
+    }
+int max=-1000;
+int colonne=-1;
+    for(int i=0;i<nb_colonnes;i++){
+        if (score[i]>max) {
+          max=score[i];
+          colonne=i;
+        }
+    }
+    //colonne is the best move of this position
+      for (int i=nb_lignes-1;i<=0;i--){         //playing the best found move in the position in order to check again
+        if (g.board[i][colonne]=VIDE){
+          if (g.player==PLAYER1) g.board[i][colonne]=ROUGE;
+          else g.board[i][colonne]=JAUNE;
+        }
+
+      }
+    //THE TRICKY PART
+    if (depth==0)
+        return colonne;
+    else {
+      SwitchPlayer(&g);
+      colonne=minimax(g,depth-1);
+    }
 }
+*/
+int BestMove(game g){
+  int BestScore=-100000;
+  int move=-1;
+  for(int j=0;j<nb_colonnes;j++){
+    for(int i=nb_lignes-1;i>=0;i--){
+      if (g.board[i][j]==VIDE){
+        g.board[i][j]=JAUNE;
+        int score=minimax(g);
+        if(score>BestScore) {
+          BestScore=score;
+          move=j;
+          //if any bugs undo the move after playing and getting the socre
 
-int boardscore(game g,int j){
-
-
-  
+        }
+        break;
+      }
+    }
+  }
+}
+int minimax(game g){
+  return 1;
 }

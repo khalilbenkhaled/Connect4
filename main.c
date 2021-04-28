@@ -57,9 +57,9 @@ break;
 }//end events
 if (g.player==PLAYER2){
   int j;
-  j=ia(g);
+  j=BestMove(g);
   click(&g,j);
-} 
+}
 
 
  SDL_Flip(screen);
