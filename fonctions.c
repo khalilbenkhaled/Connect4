@@ -297,13 +297,13 @@ if (depth==0){
   return score;
 }
 
-if (g.g.player==g.player2){
+if (g.player==PLAYER2){
   int BestScore=-100;
   for(int j=0;j<nb_colonnes;j++){
     for(int i=nb_lignes-1;i>=0;i--){
       if (g.board[i][j]==VIDE){
         g.board[i][j]=JAUNE;
-         Switchg.player(&g);
+         SwitchPlayer(&g);
         int score=minimax(g,depth-1);
         if(score>BestScore) {
           BestScore=score;
