@@ -52,4 +52,4 @@ int ia(game g);
 
 
 int BestMove(game g);
-int minimax(game g);
+int minimax(game g,int depth);
