@@ -248,6 +248,7 @@ int BestMove(game g){
   return move;
 }
 int minimax(game g,int depth){
+  printf("\n PLAYER %d",g.player);
 
   GameOver(&g);
   if (g.state!=RUNNING){

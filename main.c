@@ -60,7 +60,6 @@ if (g.player==PLAYER2){
   j=BestMove(g);
   click(&g,j);
 }
-printf("\n PLAYER %d",g.player);
 
  SDL_Flip(screen);
 }//fin boucle
