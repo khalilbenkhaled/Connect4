@@ -251,7 +251,7 @@ int minimax(game g,int depth){
 //  printf("\n PLAYER %d",g.player);
 
   GameOver(&g);
-  printf("\n DEPTH",depth);
+  printf("\n DEPTH %d",depth);
 if (depth==0){
   int score;
   if (g.state!=RUNNING){
